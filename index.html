@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b0907" />
+    <meta name="description" content="Golden Hikers: todas las rutas de senderismo que hemos hecho juntos por Navarra, con sus kilómetros, su desnivel y el mapa." />
+    <title>Golden Hikers · Senderismo en Navarra</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ffb627'/%3E%3Cstop offset='1' stop-color='%23c81d25'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='6' fill='%230b0907'/%3E%3Ccircle cx='21' cy='13' r='6' fill='url(%23g)'/%3E%3Cpath d='M0 27 L9 15 L15 21 L20 16 L32 27 L32 32 L0 32 Z' fill='%230b0907' stroke='%23ff7a1a' stroke-width='1.5'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="./assets/index-CD9bt6W-.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-Dgb_1S7x.css">
+  </head>
+  <body>
+    <header class="portada con-foto">
+      <div class="portada-fondo" aria-hidden="true">
+        <img class="portada-foto" src="fotos-web/portada-sol-1280.webp" srcset="fotos-web/portada-sol-640.webp 640w, fotos-web/portada-sol-1280.webp 1280w, fotos-web/portada-sol-1920.webp 1920w" sizes="max(100vw, 178vh)" width="2400" height="1350" alt="" fetchpriority="high" decoding="async" style="background-image:url(data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABwBACdASoYAA4APu1iqk4ppaQiMAgBMB2JaACdMoMYPYABgYAcrXzwh2Y5cAD+og22EhZOOgaAfJut4pXIPG1D1SOwF1l2raZHxugeyUEqcKiuaym2xWhJlLgmXwPCwAA=)" />
+        <div class="cielo"></div>
+        <div class="sol"></div>
+        <svg class="sierras" id="sierras" viewBox="0 0 1000 320" preserveAspectRatio="none"></svg>
+        <div class="tinte"></div>
+      </div>
+
+      <div class="portada-contenido">
+        <p class="antetitulo"><span>Senderismo en Navarra</span><span id="rango"></span></p>
+        <h1 class="titulo"><span class="titulo-golden">Golden</span><span class="titulo-hikers">Hikers</span></h1>
+        <p class="entradilla">Todas las rutas que hemos hecho juntos, con los kilómetros y el desnivel de cada salida.</p>
+      </div>
+
+      <dl class="cifras">
+        <div class="cifra cifra-grande"><dt>rutas</dt><dd><span data-cifra="rutas">–</span></dd></div>
+        <div class="cifra"><dt>kilómetros andados</dt><dd><span data-cifra="km">–</span><small>km</small></dd></div>
+        <div class="cifra"><dt>metros de desnivel positivo</dt><dd><span data-cifra="desnivel">–</span><small>m</small></dd></div>
+        <div class="cifra"><dt>veces el Everest (8.849 m)</dt><dd><span data-cifra="everest">–</span><small>×</small></dd></div>
+      </dl>
+
+      <a class="bajar" href="#seccion-mapa">Ver las rutas <span aria-hidden="true">↓</span></a>
+    </header>
+
+    <main class="cuerpo">
+      <section class="bloque-mapa" id="seccion-mapa" aria-labelledby="titulo-mapa">
+        <div class="bloque-cabecera">
+          <h2 id="titulo-mapa"><span class="seccion-n">01</span>El mapa</h2>
+          <div class="conmutador" role="group" aria-label="Modo del mapa">
+            <button type="button" data-modo="rutas" aria-pressed="true">Rutas</button>
+            <button type="button" data-modo="calor" aria-pressed="false">Mapa de calor</button>
+          </div>
+        </div>
+        <div class="mapa-marco">
+          <div id="mapa" class="mapa" role="region" aria-label="Mapa con todas las rutas"></div>
+          <div class="leyenda-calor" aria-hidden="true"><span>Menos pasos</span><i></i><span>Más pasos</span></div>
+        </div>
+      </section>
+
+      <section class="bloque-lista" aria-labelledby="titulo-lista">
+        <div class="bloque-cabecera">
+          <h2 id="titulo-lista"><span class="seccion-n">02</span>Las rutas</h2>
+          <p class="media" id="media"></p>
+        </div>
+        <div class="filtros">
+          <div class="filtro">
+            <span class="filtro-etiqueta" id="et-anio">Año</span>
+            <div class="conmutador" role="group" aria-labelledby="et-anio" id="filtro-anio"></div>
+          </div>
+          <div class="filtro">
+            <span class="filtro-etiqueta" id="et-orden">Orden</span>
+            <div class="conmutador" role="group" aria-labelledby="et-orden" id="filtro-orden">
+              <button type="button" data-orden="fecha" aria-pressed="true">Fecha</button>
+              <button type="button" data-orden="km" aria-pressed="false">Distancia</button>
+              <button type="button" data-orden="desnivel" aria-pressed="false">Desnivel</button>
+            </div>
+          </div>
+        </div>
+        <div id="lista" class="lista" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <section class="franja" aria-label="Fotos de las rutas"><div class="franja-cabecera"><h2><span class="seccion-n">03</span>Por el camino</h2><p class="franja-pista">Desliza para ver más</p></div><ul class="franja-lista"><li><img src="fotos-web/2025-10-06-luz-de-tarde-1012.webp" srcset="fotos-web/2025-10-06-luz-de-tarde-640.webp 640w, fotos-web/2025-10-06-luz-de-tarde-1012.webp 1012w" sizes="(min-width: 960px) 560px, 80vw" width="1012" height="1800" alt="2025 10 06 luz de tarde" loading="lazy" decoding="async" style="aspect-ratio:1012/1800;background-image:url(data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBQCdASoYACsAPulgqE2pJaQiNVgIASAdCU0sqxOPwBIokx5O4uh10mLsJmWL39bAAP7nBLXFnQ09f3R4ZSN6ExVBzgCWxRTHJPdl4rmmkcDl/1vyduYh7IyKit8DTW/WoM9o7XvltZw6MTxJbMCuJZiXAAAA)" /></li><li><img src="fotos-web/2025-12-14-perdon-foto-grupo-1280.webp" srcset="fotos-web/2025-12-14-perdon-foto-grupo-640.webp 640w, fotos-web/2025-12-14-perdon-foto-grupo-1280.webp 1280w, fotos-web/2025-12-14-perdon-foto-grupo-1800.webp 1800w" sizes="(min-width: 960px) 560px, 80vw" width="1800" height="1013" alt="2025 12 14 perdon foto grupo" loading="lazy" decoding="async" style="aspect-ratio:1800/1013;background-image:url(data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAACwAwCdASoYAA4APu1kq04ppaQiMAgBMB2JQBOnKAAcZtumiHLQAAD+w8FWcBBJjMYTKGSFgZeZsFKTn0lzsldsty8xX2AA)" /></li><li><img src="fotos-web/2025-12-14-perdon-grupo-espaldas-1280.webp" srcset="fotos-web/2025-12-14-perdon-grupo-espaldas-640.webp 640w, fotos-web/2025-12-14-perdon-grupo-espaldas-1280.webp 1280w, fotos-web/2025-12-14-perdon-grupo-espaldas-1800.webp 1800w" sizes="(min-width: 960px) 560px, 80vw" width="1800" height="1013" alt="2025 12 14 perdon grupo espaldas" loading="lazy" decoding="async" style="aspect-ratio:1800/1013;background-image:url(data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACwAwCdASoYAA4APu1mq04ppaQiMAgBMB2JYwCdACHV/o6H9R6xsAD+i63qtGif35+iRXkISi4IDagK0dW3JdBuDDD3DPgAAAA=)" /></li><li><img src="fotos-web/2026-01-06-higa-monreal-niebla-1280.webp" srcset="fotos-web/2026-01-06-higa-monreal-niebla-640.webp 640w, fotos-web/2026-01-06-higa-monreal-niebla-1280.webp 1280w, fotos-web/2026-01-06-higa-monreal-niebla-1800.webp 1800w" sizes="(min-width: 960px) 560px, 80vw" width="1800" height="1013" alt="2026 01 06 higa monreal niebla" loading="lazy" decoding="async" style="aspect-ratio:1800/1013;background-image:url(data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAwCdASoYAA4APu1kq04ppaQiMAgBMB2JYwCdABbOJ7AizzmKzwAA/l4+45HDxr1GBlF/kFPLvayLmmpbRBHodqGxdvv6kDRqJAAA)" /></li><li><img src="fotos-web/cima-torre-atardecer-1280.webp" srcset="fotos-web/cima-torre-atardecer-640.webp 640w, fotos-web/cima-torre-atardecer-1280.webp 1280w, fotos-web/cima-torre-atardecer-1800.webp 1800w" sizes="(min-width: 960px) 560px, 80vw" width="1800" height="1013" alt="cima torre atardecer" loading="lazy" decoding="async" style="aspect-ratio:1800/1013;background-image:url(data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAACQAwCdASoYAA4ALrV2u12jqampiYC0SyAE6AHpEupyYXO49qIAAP7zJWjXNiyx9geRsw5Oy0m92jWT/4xEckps3NUo3JZDkSOUlVTeyXtEAAAA)" /></li></ul></section>
+
+    <footer class="pie">
+      <p class="pie-marca">Golden Hikers</p>
+      <div class="pie-datos">
+        <p>Datos sacados de Strava</p>
+        <p id="actualizado"></p>
+      </div>
+    </footer>
+
+  </body>
+</html>
